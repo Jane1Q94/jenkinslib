@@ -1,6 +1,6 @@
 @Library('jenkinslib') _
 
-def tools = new org.jenkinslib.tools()
+def tools = new yangjijian.tools()
 
 pipeline {
     agent any
