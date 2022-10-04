@@ -21,7 +21,7 @@ pipeline {
             steps {
                 timeout(time:1, unit: "MINUTES"){
                     script{
-                        print("Get Code")
+                        tools.PrintColorMsg("获取代码", "green")
                     }
                 }
             }
@@ -30,8 +30,7 @@ pipeline {
             steps{
                 timeout(time: 1, unit: "MINUTES"){
                     script{
-			tools.PrintMsg("this is my lib")
-                        print("Build")
+			tools.PrintColorMsg("编译代码", "green1")
                     }
                 }
             }
@@ -40,9 +39,9 @@ pipeline {
             steps{
                 timeout(time:1, unit: "MINUTES"){
                     script{
-                        println("Sonar Scan")
+                        tools.PrintColorMsg("代码扫描", "blue")
                         node = tool "node"
-                        print("${node}")
+                        tools.PrintColorMsg("${node}", "red")
                         sh "${node}/node --version"
                         input id: '1', message: '是否要继续？', ok: 'yes', parameters: [string(defaultValue: 'test default value', description: 'test description', name: 'test input')], submitter: 'yangjijian'
                     }
