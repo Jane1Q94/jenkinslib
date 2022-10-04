@@ -30,7 +30,7 @@ pipeline {
             steps{
                 timeout(time: 1, unit: "MINUTES"){
                     script{
-			                  tools.PrintMsg(“this is my lib”)
+			tools.PrintMsg("this is my lib")
                         print("Build")
                     }
                 }
